@@ -1,28 +1,15 @@
 import axios from 'axios';
 
-const API_URL = 'http://www.reddit.com/r/aww/search.json';
 
-export function fetchAPI() {
+export const sayHello = () => {
 
-  let request = axios.get(API_URL, {
-    params: {
-      q: "",
-      restrict_sr: "true",
-      limit: 100
-    }
-  });
+  return (dispatch) => {
 
-  return function(dispatch) {
-    request.then(function(data) {
+        dispatch({
+          type: 'HELLO' ,
+          payload: 'hello world'
+        });
 
-      dispatch(
-        {
-          type: 'FETCH_API',
-          payload: data.data.data.children
-        }
-      );
-    });
   }
-
 
 }

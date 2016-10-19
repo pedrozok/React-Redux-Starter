@@ -1,12 +1,31 @@
 import React, { Component } from 'react';
-import Hello from '../containers/hello';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux'
+import {sayHello} from '../actions'
 
-export default class App extends Component {
+class App extends Component {
+
+  componentWillMount() {
+    this.props.sayHello();
+  }
+
   render() {
+
     return (
-        <div>
-          <Hello></Hello>
-        </div>
+      <h1>{this.props.hello}</h1>
     );
+
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    hello: state.hello
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return { sayHello: bindActionCreators(sayHello, dispatch) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

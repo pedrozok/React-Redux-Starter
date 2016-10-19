@@ -7,7 +7,7 @@ module.exports = {
         contentBase: './',
         port: 3000,
         hot: true
-    },
+  },
   devtool: 'eval',
   entry: [
     'react-hot-loader/patch',
@@ -28,10 +28,8 @@ module.exports = {
       test: /\.js$/,
       loaders: ['babel'],
       include: path.join(__dirname, 'src')
-    },
-    {
-      test: /\.scss/,
-      loader: 'style-loader!css-loader!sass-loader'
     }]
+
   }
+  
 };
