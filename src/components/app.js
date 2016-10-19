@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {sayHello} from '../actions'
 
+require('../../sass/main.scss');
+
 class App extends Component {
 
   componentWillMount() {
